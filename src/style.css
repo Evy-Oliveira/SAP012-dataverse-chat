@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto Condensed;
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    top: 5px;
+    left: 10px;
+    height: 6vh;
+  }
+  header figure img {
+    width: 45px;
+    height: 37px;
+    margin: 8px;
+  }
+  header h1 {
+    color: #ffa500;
+    font-family: Lemon;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-top: 3px;
+    height: 2vh;
+  }
+  footer p {
+    color:#ffa500;
+    text-align: center;
+    font-family: "Lily Script One";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
