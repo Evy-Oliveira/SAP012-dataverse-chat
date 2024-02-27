@@ -16,10 +16,10 @@ TODOS:
 3.- Invoque o roteador para renderizar a visualização correta.
 */
 
-import Home from './views/Home.js'
-import About from './views/About.js'
-import Error from './views/Error.js'
-import { setRootEl, setRoutes, onURLChange } from './router.js'
+import {Home} from './views/Home.js'
+import {About} from './views/About.js'
+import {Error} from './views/Error.js'
+import {setRootEl, setRoutes, onURLChange } from './router.js'
 
 const routes = {
     "/": Home,
