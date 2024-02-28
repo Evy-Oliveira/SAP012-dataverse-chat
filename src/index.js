@@ -23,7 +23,7 @@ import {setRootEl, setRoutes, onURLChange } from './router.js'
 
 const routes = {
     "/": Home,
-    "/About": About,
+    "/Anime": Anime,
     "/Error": Error,
 };
 setRoutes(routes);
