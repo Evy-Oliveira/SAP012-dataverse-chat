@@ -217,7 +217,7 @@ export default [
     "shortDescription": "Aventura, Fantasia, Ficção Científica",
     "description": "One Piece é uma série de mangá e anime criada por Eiichiro Oda. A história segue as aventuras de Monkey D. Luffy, um jovem que ganhou poderes de borracha ao comer uma fruta do diabo, e sua tripulação, os Piratas do Chapéu de Palha. Eles exploram a Grande Rota em busca do tesouro lendário chamado One Piece, que pertenceu ao falecido Rei dos Piratas, Gol D. Roger. No caminho, eles enfrentam diversos inimigos e desafios, enquanto também fazem amigos e aliados. One Piece é uma obra cheia de ação, comédia, drama e fantasia, que conquistou milhões de fãs pelo mundo.",
     "imageUrl": "https://s2-techtudo.glbimg.com/i2HPK7IP4KyMP7fAzoTJNvlLjlk=/0x0:1200x700/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/Y/d/HMI5j9SWeMHuDqbJTcfQ/one-piece-foto.jpg",
-    "protagonist":"IMonkey D. Luffy",
+    "protagonist":"Monkey D. Luffy",
     "facts": {
       "creatorOfManga": "Eiichiro Oda",
       "producerOfManga": "Kônosuke Uda",

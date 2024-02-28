@@ -64,7 +64,8 @@ export function Home(props) {
   //estatistica
   const classificationList = viewEl.querySelector(".estatisticas");
   classificationList.appendChild(renderListClassification(computeStats(dadosExibidos)));
-
+  
+  //modal curiosidades
   window.closeModal = (id) => {
     const modal = document.querySelector("#modal-" + id);
     modal.style.display = "none";
