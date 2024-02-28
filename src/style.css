@@ -7,40 +7,65 @@
 
 body,
 html {
-  background: #000000;
-  /* height: 100vh;  */
-  overflow: hidden;
-  /*Isso remove a barra de rolagem do body */
-  height: 100vh;
-  /* Isso define a altura do body para a altura da janela de visualização */
-  margin: 0;
-  padding: 0;
+  background: #262626;
+  overflow: hidden;/*Isso remove a barra de rolagem do body */
+  height: 100vh;/* Isso define a altura do body para a altura da janela de visualização */
 }
 
 header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   position: relative;
-  width: 300px;
-  top: 5px;
-  left: 10px;
-  height: 6vh;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 5vh;
+}
+.titleImg{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;   
 }
 
-header figure img {
+header div figure img {
   width: 45px;
   height: 37px;
-  margin: 8px;
+  margin-top: 8px;
 }
 
-header h1 {
+header div h1 {
   color: #ffa500;
   font-family: Lemon;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 500;
+  /* font-weight: bold; */
   line-height: normal;
+  margin-left: 5px;
+}
+header nav ul{
+  width: 100px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+.navigation-item{
+  display: flex;
+  justify-content:space-between;   
+}
+.navigation li{
+  width: 40px;
+ color: #ffa500;
+ text-align: center;
+ font-family: "Lemon";
+ font-size: 14px;
 }
 
 .menu {
@@ -77,7 +102,8 @@ select {
   background-color: #000000;
   color: #ffa500;
   padding-left: 5px;
-  height: auto;
+  margin-top: 2px;
+  height: 3vh;
 }
 
 .meu-menu {
@@ -147,7 +173,6 @@ h2 {
   width: 100%;
   height: 93%;
   overflow-y: auto;
-
 }
 
 .cartao {
@@ -257,12 +282,13 @@ h5 {
 }
 
 .cartao button {
+  height: 4vh;
+  padding: 1vh;
   background-color: #ffa500;
   color: #000000;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight:bold;
   border: none;
-  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -273,10 +299,8 @@ h5 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  /*transparente */
-  z-index: 9;
-  /* Garante que o overlay fique acima de outros elementos */
+  background-color: rgba(0, 0, 0, 0.2);/*transparente */
+  z-index: 9;/* Garante que o overlay fique acima de outros elementos */
 }
 
 .curiosidades {
@@ -294,8 +318,7 @@ h5 {
 
 .curiosidades h6 {
   text-align: center;
-  color: #000000;
-  /* Ajuste a cor do texto conforme necessário */
+  color: #000000;/* Ajuste a cor do texto conforme necessário */
   font-size: 14px;
   font-weight: bold;
   font-family: "RobotoCondensed-Light", sans-serif;
@@ -333,7 +356,7 @@ footer {
   width: 100%;
   position: fixed;
   bottom: 0;
-  margin-top: 3px;
+  margin-bottom: 3px;
   height: 2vh;
 }
 
@@ -348,13 +371,19 @@ footer p {
 }
 
 @media(max-width: 768px) {
+  header nav ul{
+    margin-right: 20px;
+  }
   .cartao {
     width: 35vh;
     height: 45vh;
   }
 }
 
-@media(max-width:1024px) {
+@media(min-width:769px) and (max-width:1024px) {
+  header nav ul{
+    margin-right: 30px;
+  }
   .cartao {
     width: 20%;
     min-width: 200px;
@@ -363,6 +392,9 @@ footer p {
 }
 
 @media (min-width: 1440px) {
+  header nav ul{
+    margin-right: 40px;
+  }
   .cartao {
     width: 30%;
     /* Define a largura dos cartões */
