@@ -1,7 +1,14 @@
+
+const APIKEY = "apikey-value"
 export const getApiKey = () => {
-    // Implemente o código para obter a API KEY do armazenamento local
+    // Vai no armazenamento local do navegador, pega a chave api que esta armazenado no localStorage e retorna a chave
+    const apiKey = localStorage.getItem(APIKEY)
+
+    return apiKey;
     
 };
  export const setApiKey = (key) => {
-   // Implemente o código para salvar a API KEY no armazenamento local
+   //coloca a  API KEY no armazenamento local
+   localStorage.setItem(APIKEY, key);
+
  };
