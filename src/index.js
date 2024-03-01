@@ -20,6 +20,7 @@ import {home} from './views/home.js'
 import {chatWithProtagonist} from './views/chatWithProtagonist.js'
 import {error} from './views/error.js'
 import {setRootEl, setRoutes, onURLChange } from './router.js'
+import { setApiKey, getApiKey } from './lib/apikey.js'
 
 const routes = {
     "/": home,
@@ -32,6 +33,7 @@ window.addEventListener("DOMContentLoaded", () =>{
     setRootEl(document.getElementById("root"));
     onURLChange(window.location);
 });
+//modal chave api
 window.closeApiKeyModal = () => {
     const modal = document.querySelector("#modal-apikey");
     modal.style.display = "none";
@@ -51,3 +53,10 @@ window.closeApiKeyModal = () => {
 
     });
   }
+  // botao de salvar chave api
+  document.querySelector("#botao-salvar").addEventListener('click', () =>{
+    const chaveApi = document.querySelector("input[name='key-value']").value;
+    setApiKey(chaveApi);
+    closeApiKeyModal();
+    console.log(getApiKey());
+  })
