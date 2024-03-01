@@ -60,12 +60,15 @@ header nav ul{
   display: flex;
   justify-content:space-between;   
 }
-.navigation li{
+.navigation li,
+.navigation li * {
   width: 40px;
  color: #ffa500;
  text-align: center;
  font-family: "Lemon";
  font-size: 14px;
+ background-color: transparent;
+ border: none;
 }
 
 .menu {
@@ -304,6 +307,18 @@ h5 {
 }
 
 .curiosidades {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+#modal-apikey {
   display: none;
   position: fixed;
   z-index: 10;
