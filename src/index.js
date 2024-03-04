@@ -17,14 +17,14 @@ TODOS:
 */
 
 import {home} from './views/home.js'
-import {chatWithProtagonist} from './views/chatWithProtagonist.js'
+import {chat} from './views/chat.js'
 import {error} from './views/error.js'
 import {setRootEl, setRoutes, onURLChange } from './router.js'
 import { setApiKey, getApiKey } from './lib/apikey.js'
 
 const routes = {
     "/": home,
-    "/ChatWithProtagonist": chatWithProtagonist,
+    "/Chat": chat,
     "/Error": error,
 };
 setRoutes(routes);
