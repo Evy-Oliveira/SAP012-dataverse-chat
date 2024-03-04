@@ -39,9 +39,10 @@ export const onURLChange = (location) => {
   console.log("Chamou a onURLChange");
   // analisa a localização do nome do caminho e dos parâmetros de pesquisa
   // converte os parâmetros de pesquisa em um objeto
+  const props =queryStringToObject(location.search);
 
   // renderiza a view com o caminho e o objeto
-  renderView(location.pathname);
+  renderView(location.pathname, props);
 
 }
 
@@ -50,7 +51,10 @@ export const navigateTo = (pathname, props = {}) => {
   // renderiza a view com o nome do caminho e props
 }
 const queryStringToObject = (queryString) => {
+  let props = {};
   //converte a string de consulta em URLSearchParams
   //converte URLSearchParams em um objeto
+  
   //retorna o objeto
+  return props;
 }
