@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dataverse Chat</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lemon&family=Lily+Script+One&family=Roboto+Condensed:wght@100;400&family=Salsa&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Otaku List</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lemon&family=Lily+Script+One&family=Roboto+Condensed:wght@100;400&family=Salsa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
     <div class="titleImg">
+
       <figure>
-        <img src="assets/imgheader.jpg" alt="Animação com duas meninas uma de cabelo rosa e outra azul"/>
+        <img src="assets/imgheader.jpg" alt="Animação com duas meninas uma de cabelo rosa e outra azul" />
       </figure>
-   
       <h1>Otaku's List</h1>
+
     </div>
-      <nav class="navigation">
-        <ul class="navigation-Item">
-          <li>Portal Anime</li>
-          <li>Chave Api</li>
-        </ul>
-      </nav>
-      
-    </header>
-   
-    <div id="root"></div>
 
-    <footer>
-      <p>Desenvolvido por Evelyn Oliveira</p>
-    </footer>
+    <nav class="navigation">
 
-    <script src="index.js" type="module"></script>
-  </body>
+      <ul class="navigation-item">
+
+        <li><button id="chat-group" onclick="">Portal Chat</button></li>
+
+        <li><button id="botao-apikey" onclick="openApiKeyModal()">Chave Api</button></li>
+        <section id="modal-apikey">
+          <span class="close" onclick="closeApiKeyModal()"></span>
+          <h5>Chave API</h5>
+          <input type="text" name="key-value" placeholder="Digite aqui sua Chave API do ChatGPT">
+          <p>Não tem uma chave? Saiba como obter uma <a
+            href="https://comunidadedeestatistica.com.br/como-criar-uma-chave-token-para-api-do-chatgpt/">aqui</a> </p>
+          <button id="botao-salvar">Salvar Chave API</button>
+        </section>
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <div id="root"></div>
+
+  <footer>
+    <p>Desenvolvido por Evelyn Oliveira</p>
+  </footer>
+
+  <script src="index.js" type="module"></script>
+</body>
+
 </html>
