@@ -54,7 +54,7 @@ export function home(props) {
     viewEl.querySelector('#streaming').value = "";
     listaCartao.appendChild(renderCards(data));
   });
-
+  //ordenação
   viewEl.querySelector("#ordenacao").addEventListener('change', (event) => {
     const valorOrdenacao = event.target.value;
     const valorOrdenado = sortBy(dadosExibidos, 'name', valorOrdenacao);
