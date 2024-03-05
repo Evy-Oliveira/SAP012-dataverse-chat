@@ -1,3 +1,14 @@
+export const filterById = (data, value) => {
+  const itemSelecionado = data.filter(item => {
+    if (item && id in item && item[id] === value
+    ) {
+      return true;
+    }
+    return false;
+  });
+
+  return itemSelecionado;
+};
 
 export const filterBy = (data, filterBy, value) => {
 
