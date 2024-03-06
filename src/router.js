@@ -36,21 +36,28 @@ const renderView = (pathname, props = {}) => {
 }
 
 export const onURLChange = (location) => {
-  console.log("Chamou a onURLChange");
-  // analisa a localização do nome do caminho e dos parâmetros de pesquisa
-  // converte os parâmetros de pesquisa em um objeto
-
+  // analisa a localização do nome do caminho e dos parâmetros de pesquisa e converte os parâmetros de pesquisa em um objeto
+  const props = queryStringToObject(location.search);
   // renderiza a view com o caminho e o objeto
-  renderView(location.pathname);
-
+  renderView(location.pathname, props);
 }
 
 export const navigateTo = (pathname, props = {}) => {
+  console.log(props);
   //atualiza o histórico da janela com pushState
+  window.history.pushState(props, null, pathname);
   // renderiza a view com o nome do caminho e props
+  renderView(pathname, props);
 }
+
 const queryStringToObject = (queryString) => {
+  let props = {};
   //converte a string de consulta em URLSearchParams
-  //converte URLSearchParams em um objeto
+  let params = new URLSearchParams(queryString)
+  //converte URLSearchParams em um objeto(Itera sobre os pares chave/valor e preenche o objeto)
+  for (const [key, value] of params.entries()) {
+    props[key] = value;
+  }
   //retorna o objeto
+  return props;
 }

@@ -1,0 +1,90 @@
+.chat{
+  padding: 10px;
+  
+}
+.chats-individuais{
+  padding-top: 10px;
+}
+.chat-individual{
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 3px;
+}
+.chat-individual div{
+  display: flex;
+  flex-direction: column;
+}
+.chat-img-personagem{
+  padding-right: 10px;
+}
+.chat-img-personagem img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.chat-personagem{
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "RobotoCondensed-Light", sans-serif;
+  margin: 3px;
+}
+.chat-personalidade{
+  color: #000000;
+  font-size: 10px;
+  font-family: "RobotoCondensed-Light", sans-serif;
+}
+#chat-mensagens{
+height: 70vh;
+display: flex;
+flex-direction: column;
+justify-content: end;
+list-style: none;
+font-size: 12px;
+}
+#chat-mensagens li {
+  display: flex;
+  margin: 5px;
+}
+#chat-mensagens li span{
+  padding: 5px;
+}
+.mensagem-enviada{
+justify-content: flex-end;
+}
+.mensagem-enviada span{
+background-color:  #ffa500;
+border-radius: 10px 3px 10px 10px;
+}
+.mensagem-resposta{
+justify-content: flex-start;
+}
+.mensagem-resposta span{
+background-color: #d9d9d9;
+border-radius: 3px 10px 10px 10px;
+}
+.chat-input{
+width: 52vh;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 20px;
+  font-size: 10px;
+}
+.chat-mensagem{
+background-color: #d9d9d9;
+border-radius: 25px;
+width: 40vh;
+height: 6vh;
+font-family: "RobotoCondensed-Light", sans-serif;
+padding: 0 10px 0 10px;
+}
+.chat-botao{
+background-color: #d9d9d9;
+border-radius: 25px;
+height: 6vh;
+font-weight: bold;
+padding: 0 10px 0 10px;
+}

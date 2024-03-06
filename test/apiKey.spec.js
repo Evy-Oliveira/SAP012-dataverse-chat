@@ -1,15 +1,17 @@
 import { getApiKey, setApiKey } from '../src/lib/apikey.js';
 
-describe('getApiKey', () => {
+const mockApiKey = "123abc";
+const APIKEY = "apikey-value";
+// const localStorageMock = {}
 
-  it('debería devolver el valor de la API Key', () => {
-    // Desenvolva o teste correspondente aqui
-  });
-});
+describe('ApiKey Functions', () => {
 
-describe('setApiKey', () => {
+  it('Deve definir corretamente o valor da chave API', () => {
+    setApiKey(mockApiKey);
+    expect(localStorage.getItem(APIKEY)).toEqual(mockApiKey)
+   });
 
-  it('debería establecer correctamente la API Key', () => {
-   // Desenvolva o teste correspondente aqui
+  it('Deve devolver o valor da chave API', () => {
+    expect(getApiKey()).toEqual(mockApiKey);
   });
 });

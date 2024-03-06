@@ -1,3 +1,9 @@
+export const filterById = (data, value) => {
+  const itemSelecionado = data.filter(item => {
+    return item["id"] === value;
+  })
+  return itemSelecionado[0];
+};
 
 export const filterBy = (data, filterBy, value) => {
 
@@ -12,7 +18,6 @@ export const filterBy = (data, filterBy, value) => {
 
   return itemSelecionado;
 };
-
 
 export const computeStats = (data) => {
   const classifications = data.map(obj => obj.extraInfo.classification);

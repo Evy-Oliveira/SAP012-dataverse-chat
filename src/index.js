@@ -1,30 +1,13 @@
-// Neste arquivo você definirá suas rotas e importará os componentes que irá renderizar.
-/*
-importar exemplo de './views/Example.js';
 
-Exemplo de definição de rota:
-
-rotas const = {
-    "/": Exemplo,
-    ...
-}
-*/
-/*
-TODOS:
-1.- Defina rotas no roteador. ok
-2.- Passe o "elemento raiz" ao roteador.
-3.- Invoque o roteador para renderizar a visualização correta.
-*/
-
-import {home} from './views/home.js'
-import {chatWithProtagonist} from './views/chatWithProtagonist.js'
+import {home} from './views/Home.js'
+import {chat} from './views/chat.js'
 import {error} from './views/error.js'
-import {setRootEl, setRoutes, onURLChange } from './router.js'
-import { setApiKey, getApiKey } from './lib/apikey.js'
+import {setRootEl, setRoutes, onURLChange} from './router.js'
+import {setApiKey} from './lib/apikey.js'
 
 const routes = {
     "/": home,
-    "/ChatWithProtagonist": chatWithProtagonist,
+    "/Chat": chat,
     "/Error": error,
 };
 setRoutes(routes);
@@ -33,6 +16,7 @@ window.addEventListener("DOMContentLoaded", () =>{
     setRootEl(document.getElementById("root"));
     onURLChange(window.location);
 });
+
 //modal chave api
 window.closeApiKeyModal = () => {
     const modal = document.querySelector("#modal-apikey");
@@ -58,5 +42,4 @@ window.closeApiKeyModal = () => {
     const chaveApi = document.querySelector("input[name='key-value']").value;
     setApiKey(chaveApi);
     closeApiKeyModal();
-    console.log(getApiKey());
   })
