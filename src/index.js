@@ -1,14 +1,14 @@
 
 import {home} from './views/Home.js'
 import {chat} from './views/chat.js'
-import {error} from './views/error.js'
+import {error} from './views/Error.js'
 import {setRootEl, setRoutes, onURLChange} from './router.js'
 import {setApiKey} from './lib/apikey.js'
 
 const routes = {
     "/": home,
-    "/Chat": chat,
-    "/Error": error,
+    "/chat": chat,
+    "/error": error,
 };
 setRoutes(routes);
 

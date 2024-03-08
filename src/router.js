@@ -1,6 +1,6 @@
 let ROUTES = {};
 let rootEl;
-const ERRORPATH = '/Error'
+const ERRORPATH = '/error'
 
 export const setRootEl = (el) => {
   // atribuir elemento raiz
@@ -19,7 +19,7 @@ export const setRoutes = (routes) => {
   ROUTES = routes;
 }
 
-const renderView = (pathname, props = {}) => {
+const renderView = (pathname, props = {id:""}) => {
   // limpa o elemento raiz
   rootEl.textContent = "";
   let path = "";
@@ -43,7 +43,6 @@ export const onURLChange = (location) => {
 }
 
 export const navigateTo = (pathname, props = {}) => {
-  console.log(props);
   //atualiza o histórico da janela com pushState
   window.history.pushState(props, null, pathname);
   // renderiza a view com o nome do caminho e props

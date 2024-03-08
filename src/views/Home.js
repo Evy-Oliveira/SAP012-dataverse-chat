@@ -92,7 +92,7 @@ export function home(props) {
     botao.addEventListener('click', (event) =>{
       const animeId = event.target.dataset.id;
       // const props = {id:animeId};
-      window.location.href = window.location.origin + '/Chat?id=' + animeId;
+      window.location.href = window.location.origin + '/chat?id=' + animeId;
       // window.navigateToPage('/Chat', props);
     });
   }
