@@ -1,11 +1,18 @@
+
+#root{
+  margin: 5px;
+}
+
 .chat{
   padding: 10px;
+  margin: 5px;
   
 }
 .chats-individuais{
   padding-top: 10px;
 }
 .chat-individual{
+  padding: 3px;
   background-color: #d9d9d9;
   display: flex;
   flex-direction: row;
@@ -36,11 +43,15 @@
   font-size: 10px;
   font-family: "RobotoCondensed-Light", sans-serif;
 }
+.listaMensagens{
+  height: 70vh;
+  overflow: auto;
+  margin-top: 10px;
+}
 #chat-mensagens{
 height: 70vh;
 display: flex;
 flex-direction: column;
-justify-content: end;
 list-style: none;
 font-size: 12px;
 }
@@ -69,7 +80,6 @@ border-radius: 3px 10px 10px 10px;
 width: 52vh;
   display: flex;
   justify-content: space-between;
-  position: fixed;
   bottom: 20px;
   font-size: 10px;
 }
@@ -87,4 +97,36 @@ border-radius: 25px;
 height: 6vh;
 font-weight: bold;
 padding: 0 10px 0 10px;
+}
+@media (min-width: 376px) {
+  .chats-individuais{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .chat-individual{
+    padding: 8px;
+  }
+  .chat-personalidade {
+    font-size: 12px;
+}
+}
+
+@media (min-width: 426px) {
+  .chats-individuais{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .chat-individual{
+    padding: 8px;
+  }
+  .chat-personagem {
+    font-size: 14px;
+  }
+  .chat-personalidade {
+    font-size: 14px;
+}
 }

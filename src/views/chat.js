@@ -15,113 +15,83 @@ export function chat(props) {
     <p class="chat-personalidade">${dataAnime.facts.protagonist.personality}</p>
     </div>
     </section>
-    <div class="listaMensagens"></div>
+    <div class="listaMensagens">
+    <ul id="chat-mensagens"></ul>
+    </div>
+    <div class="chat-typing" style="display:none">${dataAnime.facts.protagonist.name} está digitando...</div>
     <div class="chat-input">
     <input name="chat-mensagem" type="text" class="chat-mensagem" placeholder="Mensagem">
     <button class="chat-botao">Enviar</button>
     </div>
 </div>`;
 
+  const chatTyping = viewEl.querySelector(".chat-typing");
+  const inputMessage = viewEl.querySelector('input[name="chat-mensagem"]');
+  let messages = [];
 
-  const messages = [{
-    "role": "system",
-    "content": `a partir de agora responda a tudo que eu disse nesta conversa como se fosse ${dataAnime.facts.protagonist.name} do anime ${dataAnime.name}. Considere a seguinte personalidade: ${dataAnime.facts.protagonist.personality}`
-  }];
-  messages.push({
-    "role": "user",
-    "content": "Me conte sua historia"
+  const sendMessage = (event) => {
+    event.preventDefault();
+    const chatMessage = inputMessage.value;
+
+    const ul = viewEl.querySelector("#chat-mensagens");
+    const li = document.createElement('li');
+    li.classList.add("mensagem-enviada");
+    li.innerHTML = `<span>${chatMessage}</span>`;
+    ul.appendChild(li);
+    inputMessage.value ="";
+
+    chatTyping.style.display = "block";
+
+    if (messages.length === 0) {
+      messages = [{
+        "role": "system",
+        "content": `a partir de agora responda a tudo que eu disse nesta conversa como se fosse ${dataAnime.facts.protagonist.name} do anime ${dataAnime.name}. Considere a seguinte personalidade: ${dataAnime.facts.protagonist.personality}`
+      }];
+    }
+  console.log(typeof messages);
+  //incluir obejto no vetor de objtos com add ou push?
+    messages.push({
+      "role": "user",
+      "content": chatMessage
+    });
+    
+
+    communicateWithOpenAI(messages)
+      .then(assistentAnswer => {
+      
+        if (assistentAnswer && assistentAnswer.choices && assistentAnswer.choices.length > 0 && assistentAnswer.choices[0].message && assistentAnswer.choices[0].message.content) {
+          const message = assistentAnswer.choices[0].message.content.trim();
+          const assistantMessage = {
+            "role": "assistant",
+            "content": message
+          };
+          console.log(messages)
+          messages.push(assistantMessage);
+
+          chatTyping.style.display = "none";
+
+          const li2 = document.createElement('li');
+          li2.classList.add('mensagem-resposta');
+          li2.innerHTML = `<span>${message}</span>`;
+          ul.appendChild(li2);
+
+        } else {
+          console.error("Resposta do assistente inválida:", assistentAnswer);
+        }
+      })
+      .catch(error => {
+        console.error("Erro ao comunicar com OpenAI:", error);
+      });
+  }
+  inputMessage.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      sendMessage(e);
+      e.preventDefault();
+    }
   });
 
-  communicateWithOpenAI(messages)
-    .then(assistentAnswer => {
-      const ul = document.createElement('ul');
-      ul.id = "chat-mensagens";
+  viewEl.querySelector(".chat-botao").addEventListener('click', sendMessage);
 
-       if (assistentAnswer && assistentAnswer.choices && assistentAnswer.choices.length > 0 && assistentAnswer.choices[0].message && assistentAnswer.choices[0].message.content) {
-        const assistantMessage = {
-          "role": "assistant",
-          "content": assistentAnswer.choices[0].message.content.trim()
-        };
-        messages.push(assistantMessage);
-
-      for (const message of messages) {
-        if(message.role !== "system"){
-        const li = document.createElement('li');
-        if (message.role === "assistant")
-          li.classList.add('mensagem-resposta');
-        else if (message.role === "user")
-          li.classList.add("mensagem-enviada");
-        li.innerHTML = `<span>${message.content}</span>`;
-        ul.appendChild(li);
-        }
-      }
-      const listaMensagens = viewEl.querySelector('.listaMensagens');
-      console.log(listaMensagens);
-      listaMensagens.appendChild(ul);
-
-      } else {
-        console.error("Resposta do assistente inválida:", assistentAnswer);
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao comunicar com OpenAI:", error);
-    });
 
   return viewEl;
 }
-// communicateWithOpenAI(messages).then(assistentAnswer => {
-//   console.log("Resposta da OpenAI:", assistentAnswer); // Adicione este console.log
-//   const choice = assistentAnswer?.choices?.[0];
-//   const assistantMessage = choice?.message?.content?.trim();
-//   if (assistantMessage) {
-//       const message = {
-//           role: "assistant",
-//           content: assistantMessage
-//       };
-//       messages.push(message);
-//       // Exibir a mensagem na interface do usuário
-//       const chatMensagens = document.getElementById('chat-mensagens');
-//       const liAnswer = document.createElement('li');
-//       liAnswer.classList.add('mensagem-resposta');
-//       liAnswer.innerHTML = `<span>${assistantMessage}</span>`;
-//       chatMensagens.appendChild(liAnswer);
-//   } else {
-//       console.error("Resposta do assistente inválida:", assistentAnswer);
-//   }
-// }).catch(error => {
-//   console.error("Erro ao comunicar com OpenAI:", error);
-// });
-//
-// communicateWithOpenAI(messages).then(assistentAnswer => {
-//   if (assistentAnswer && assistentAnswer.message && assistentAnswer.message.content) {
-//     messages.push(assistentAnswer);
-//     const liAnswer = document.createElement('li');
-//     liAnswer.classList.add('mensagem-resposta');
-//     liAnswer.innerHTML = `<span>${assistentAnswer.message.content}</span>`;
-//     viewEl.querySelector('#chat-mensagens').appendChild(liAnswer);
-//   } else {
-//     console.error("Resposta do assistente inválida:", assistentAnswer);
-//   }
-// }).catch(error => {
-//   console.error("Erro ao comunicar com OpenAI:", error);
-// });
-
-// communicateWithOpenAI(messages).then(assistentAnswer => {
-//   messages.push(assistentAnswer);
-//   const liAnswer = document.createElement('li');
-//   liAnswer.classList.add('mensagem-resposta');
-//   liAnswer.innerHTML = `<span>${assistentAnswer.message.content}</span>`;
-//   viewEl.querySelector('#chat-mensagens').appendChild(liAnswer);
-// });
-
-// try{
-// let assistentAnswer = await communicateWithOpenAI(messages);
-// console.log('Resposta do assistente:', assistentAnswer);
-//   messages.push(assistentAnswer);
-//   const liAnswer = document.createElement('li');
-//   liAnswer.classList.add('mensagem-resposta');
-//   liAnswer.innerHTML = `<span>${assistentAnswer.message.content}</span>`
-//   viewEl.querySelector('#chat-mensagens').appendChild(liAnswer);
-// } catch (error){
-//   console.error('Ocorreu um erro ao obter a resposta do assistente:', error)
-// }
