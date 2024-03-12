@@ -50,9 +50,9 @@ export const navigateTo = (pathname, props = {}) => {
 }
 
 const queryStringToObject = (queryString) => {
-  let props = {};
+  const props = {};
   //converte a string de consulta em URLSearchParams
-  let params = new URLSearchParams(queryString)
+  const params = new URLSearchParams(queryString)
   //converte URLSearchParams em um objeto(Itera sobre os pares chave/valor e preenche o objeto)
   for (const [key, value] of params.entries()) {
     props[key] = value;

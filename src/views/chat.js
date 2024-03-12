@@ -38,7 +38,7 @@ export function chat(props) {
     li.classList.add("mensagem-enviada");
     li.innerHTML = `<span>${chatMessage}</span>`;
     ul.appendChild(li);
-    inputMessage.value ="";
+    inputMessage.value = "";
 
     chatTyping.style.display = "block";
 
@@ -48,24 +48,23 @@ export function chat(props) {
         "content": `a partir de agora responda a tudo que eu disse nesta conversa como se fosse ${dataAnime.facts.protagonist.name} do anime ${dataAnime.name}. Considere a seguinte personalidade: ${dataAnime.facts.protagonist.personality}`
       }];
     }
-  console.log(typeof messages);
-  //incluir obejto no vetor de objtos com add ou push?
+  
     messages.push({
       "role": "user",
       "content": chatMessage
     });
-    
+
 
     communicateWithOpenAI(messages)
       .then(assistentAnswer => {
-      
+
         if (assistentAnswer && assistentAnswer.choices && assistentAnswer.choices.length > 0 && assistentAnswer.choices[0].message && assistentAnswer.choices[0].message.content) {
           const message = assistentAnswer.choices[0].message.content.trim();
           const assistantMessage = {
             "role": "assistant",
             "content": message
           };
-          console.log(messages)
+    
           messages.push(assistantMessage);
 
           chatTyping.style.display = "none";

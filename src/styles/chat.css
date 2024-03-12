@@ -98,7 +98,7 @@ height: 6vh;
 font-weight: bold;
 padding: 0 10px 0 10px;
 }
-@media (min-width: 376px) {
+@media (min-width: 375px) {
   .chats-individuais{
     display: flex;
     align-items: center;
