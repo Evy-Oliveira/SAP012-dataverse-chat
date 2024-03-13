@@ -6,6 +6,7 @@ import { renderListClassification } from '../components/statistics.js';
 
 
 export function home(props) {
+  // props;
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="menu">
     <section id="filtro">
@@ -92,7 +93,7 @@ export function home(props) {
     botao.addEventListener('click', (event) =>{
       const animeId = event.target.dataset.id;
       // const props = {id:animeId};
-      window.location.href = window.location.origin + '/Chat?id=' + animeId;
+      window.location.href = window.location.origin + '/chat?id=' + animeId;
       // window.navigateToPage('/Chat', props);
     });
   }

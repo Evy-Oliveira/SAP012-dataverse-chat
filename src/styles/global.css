@@ -1,0 +1,184 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto Condensed;
+}
+
+body,
+html {
+  background: #262626;
+  overflow: hidden;/*Isso remove a barra de rolagem do body */
+  height: 100vh;/* Isso define a altura do body para a altura da janela de visualização */
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 5vh;
+}
+.titleImg{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;   
+}
+
+header div figure img {
+  width: 45px;
+  height: 37px;
+  margin-top: 8px;
+}
+
+header div h1 {
+  color: #ffa500;
+  font-family: Lemon;
+  font-size: 18px;
+  font-style: normal;
+  /* font-weight: bold; */
+  line-height: normal;
+  margin-left: 5px;
+}
+.otakus-link {
+  text-decoration: none; /* Remove o sublinhado */
+  position: relative; /* Define a posição relativa para permitir o posicionamento absoluto do título */
+}
+.otakus-link:hover {
+  /* content: attr(aria-label); Exibe o atributo title */
+  color: #d9d9d9;
+}
+
+header nav ul{
+  width: 100px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+.navigation-item{
+  display: flex;
+  justify-content:space-between;   
+}
+.navigation li,
+.navigation li * {
+  width: 40px;
+ color: #ffa500;
+ text-align: center;
+ font-family: "Lemon";
+ font-size: 14px;
+ background-color: transparent;
+ border: none;
+}
+#modal-apikey {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: fixed;
+  z-index: 10;
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 30%;
+  overflow: auto;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 5px;
+}
+#modal-apikey h5{
+  text-align: center;
+  color: #000000;/* Ajuste a cor do texto conforme necessário */
+  font-size: 14px;
+  font-weight: bold;
+}
+#modal-apiKey form{
+  display: flex;
+  align-items: center;
+}
+#botao-salvar{
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  height: 4vh;
+  padding: 1vh;
+  cursor: pointer;
+  color: #000000;
+  font-size: 12px;
+  font-weight:bold;
+}
+
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 3px;
+  height: 2vh;
+}
+
+footer p {
+  color: #ffa500;
+  text-align: center;
+  font-family: "Lily Script One";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media(max-width: 768px) {
+  header nav ul{
+    margin-right: 20px;
+  }
+  .cartao {
+    width: 35vh;
+    height: 45vh;
+  }
+  .chats-individuais{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .chat-individual{
+    padding: 8px;
+  }
+  .chat-personalidade {
+    font-size: 12px;
+}
+}
+
+@media(min-width:769px) and (max-width:1024px) {
+  header nav ul{
+    margin-right: 30px;
+  }
+  .cartao {
+    width: 20%;
+    min-width: 200px;
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1440px) {
+  header nav ul{
+    margin-right: 40px;
+  }
+  .cartao {
+    width: 30%;
+    /* Define a largura dos cartões */
+    min-width: 150x;
+    /* Largura mínima */
+    max-width: 220px;
+    /* Largura máxima */
+  }
+}

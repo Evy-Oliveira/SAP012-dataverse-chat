@@ -4,8 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Otaku's List</title>
-  <link rel="stylesheet" href="./styles/style.css"/>
+  <link rel="stylesheet" href="./styles/global.css"/>
   <link rel="stylesheet" href="./styles/chat.css">
+  <link rel="stylesheet" href="./styles/home.css">
+  <link rel="stylesheet" href="./styles/error.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Lemon&family=Lily+Script+One&family=Roboto+Condensed:wght@100;400&family=Salsa&display=swap" rel="stylesheet" />
@@ -18,7 +20,10 @@
       <figure>
         <img src="assets/imgheader.jpg" alt="Animação com duas meninas uma de cabelo rosa e outra azul" />
       </figure>
-      <h1>Otaku's List</h1>
+
+     <a href="/" class="otakus-link" title="Voltar para a página incial"> 
+      <h1>Otaku's List</h1> 
+    </a>
 
     </div>
 
@@ -28,11 +33,11 @@
 
         <li><button id="chat-group" onclick="">Portal Chat</button></li>
 
-        <li><button id="botao-apikey" onclick="openApiKeyModal()">Chave Api</button></li>
+        <li><button id="botao-apikey">Chave Api</button></li>
         <section id="modal-apikey">
-          <span class="close" onclick="closeApiKeyModal()"></span>
+          <span class="close"></span>
           <h5>Chave API</h5>
-          <input type="text" name="key-value" placeholder="Digite aqui sua Chave API do ChatGPT">
+          <form action=""><input type="text" name="key-value" placeholder="Digite aqui sua Chave API do ChatGPT"></form>
           <p>Não tem uma chave? Saiba como obter uma <a
             href="https://comunidadedeestatistica.com.br/como-criar-uma-chave-token-para-api-do-chatgpt/">aqui</a> </p>
           <button id="botao-salvar">Salvar Chave API</button>

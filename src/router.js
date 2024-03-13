@@ -1,6 +1,6 @@
 let ROUTES = {};
 let rootEl;
-const ERRORPATH = '/Error'
+const ERRORPATH = '/error'
 
 export const setRootEl = (el) => {
   // atribuir elemento raiz
@@ -43,7 +43,6 @@ export const onURLChange = (location) => {
 }
 
 export const navigateTo = (pathname, props = {}) => {
-  console.log(props);
   //atualiza o histórico da janela com pushState
   window.history.pushState(props, null, pathname);
   // renderiza a view com o nome do caminho e props
@@ -51,9 +50,9 @@ export const navigateTo = (pathname, props = {}) => {
 }
 
 const queryStringToObject = (queryString) => {
-  let props = {};
+  const props = {};
   //converte a string de consulta em URLSearchParams
-  let params = new URLSearchParams(queryString)
+  const params = new URLSearchParams(queryString)
   //converte URLSearchParams em um objeto(Itera sobre os pares chave/valor e preenche o objeto)
   for (const [key, value] of params.entries()) {
     props[key] = value;

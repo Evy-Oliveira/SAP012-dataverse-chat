@@ -6,7 +6,7 @@
   "scripts": {
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
-    "_pretest": "npm run eslint && npm run htmlhint",
+    "pretest": "npm run eslint && npm run htmlhint",
     "test": "jest --verbose --coverage test/",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
     "start": "serve src/ -s"
@@ -36,5 +36,8 @@
     "createdAt": "2024-01-30T20:30:10.854Z",
     "version": "8.1.0",
     "commit": "fa2b77c3821c1c3c5d059e8c9f113a0138b33710"
+  },
+  "dependencies": {
+    "openai": "^4.28.4"
   }
 }

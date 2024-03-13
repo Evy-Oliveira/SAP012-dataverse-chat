@@ -1,0 +1,34 @@
+.erro-view {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.erro-h1{
+  color: #ffa500;
+}
+.erro-img{
+  height: 20vh;
+}
+.erro-img img{
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.erro-p{
+  color: #ffa500;
+  font-weight: bold;
+}
+.erro-inicio{
+  height: 4vh;
+  padding: 1vh;
+  background-color: #ffa500;
+  color: #000000;
+  font-size: 12px;
+  font-weight:bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
