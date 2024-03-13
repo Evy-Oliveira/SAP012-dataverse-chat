@@ -18,13 +18,14 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //modal chave api
-window.closeApiKeyModal = () => {
+const closeApiKeyModal = () => {
   const modal = document.querySelector("#modal-apikey");
   modal.style.display = "none";
 }
-window.openApiKeyModal = () => {
+
+const openApiKeyModal = () => {
   const modal = document.querySelector("#modal-apikey");
-  modal.style.display = "block";
+  modal.style.display = "flex";
   // Criar e adicionar o elemento de fundo transparente
   const overlay = document.createElement('div');
   overlay.classList.add('modal-overlay');
@@ -32,11 +33,14 @@ window.openApiKeyModal = () => {
 
   // Adicionar um evento de clique ao overlay para fechar o modal
   overlay.addEventListener('click', () => {
-    window.closeApiKeyModal();
+    closeApiKeyModal();
     document.body.removeChild(overlay); // Remover o overlay quando o modal for fechado
 
   });
 }
+document.querySelector("#botao-apikey").addEventListener('click', () => {
+  openApiKeyModal();
+})
 // botao de salvar chave api
 document.querySelector("#botao-salvar").addEventListener('click', () => {
   const chaveApi = document.querySelector("input[name='key-value']").value;

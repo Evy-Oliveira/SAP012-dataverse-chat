@@ -6,6 +6,7 @@ import { renderListClassification } from '../components/statistics.js';
 
 
 export function home(props) {
+  // props;
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="menu">
     <section id="filtro">
