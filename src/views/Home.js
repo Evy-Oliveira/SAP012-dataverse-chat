@@ -5,7 +5,7 @@ import { renderCards } from '../components/cards.js';
 import { renderListClassification } from '../components/statistics.js';
 
 
-export function home(props) {
+export function home() {
   // props;
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="menu">

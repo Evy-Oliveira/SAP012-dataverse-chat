@@ -1,5 +1,5 @@
 
-export function error(props) {
+export function error() {
   // props;
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="erro-view">
@@ -9,10 +9,10 @@ export function error(props) {
   <button class="erro-inicio">Voltar ao inicio</button>
   </section>`;
 
- viewEl.querySelector('.erro-inicio').addEventListener('click', (event) => {
-  window.location.href = window.location.origin + '/';
+  viewEl.querySelector('.erro-inicio').addEventListener('click', () => {
+    window.location.href = window.location.origin + '/';
 
-});
- 
+  });
+
   return viewEl;
 }
