@@ -1,5 +1,32 @@
-import { filterBy, sortBy, computeStats } from '../src/lib/dataFunctions.js';
+import { filterBy, sortBy, computeStats, filterById } from '../src/lib/dataFunctions.js';
 import { data as fakeData, mockCrescente, mockDecrescente } from './data.js';
+
+describe('FilterById', () => {
+  const data = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' }
+  ];
+  it('Fitrar item pelo ID', () => {
+    const id = 2;
+    const result = filterById(data, id);
+    expect(result).toEqual({ id: 2, name: 'Item 2' });
+
+  });
+  it('Retorna indefinido para ID inexistente', () => {
+    const id = 3;
+    const result = filterById(data, id);
+
+    expect(result).toBeUndefined();
+  });
+  it('Deve retornar indefinido para lista vazia', () => {
+    const data = []; // lista de dados vazia
+    const id = 1;
+    const result = filterById(data, id);
+
+    expect(result).toBeUndefined();
+  });
+
+});
 
 describe('filterBy', () => {
   it('filtra dados por plataforma de streaming', () => {
