@@ -8,7 +8,7 @@ export function chat(props) {
   const viewEl = document.createElement('div');
   viewEl.classList.add('chat');
   viewEl.innerHTML = `<div class="chats-individuais">
-    <section class="chat-individual">
+    <section class="chat-id-perso">
     <figure class="chat-img-personagem"><img src="${dataAnime.facts.protagonist.imageURL}" alt="imagem de ${dataAnime.facts.protagonist.name} protagonista do ${dataAnime.name}"></figure>
     <div>
     <h1 class="chat-personagem">${dataAnime.facts.protagonist.name}</h1>
