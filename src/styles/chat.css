@@ -11,7 +11,7 @@
 .chats-individuais{
   padding-top: 10px;
 }
-.chat-individual{
+.chat-id-perso{
   padding: 3px;
   background-color: #d9d9d9;
   display: flex;
@@ -19,11 +19,7 @@
   align-items: center;
   border-radius: 3px;
 }
-.chat-individual div{
-  display: flex;
-  flex-direction: column;
-  padding-right: 10px;
-}
+
 .chat-img-personagem{
   padding-right: 10px;
 }
@@ -41,8 +37,7 @@
 }
 .chat-personalidade{
   color: #000000;
-  font-size: 10px;
-  font-family: "RobotoCondensed-Light", sans-serif;
+  font-size: 11px;
 }
 .listaMensagens{
   height: 68vh;
@@ -77,11 +72,15 @@ justify-content: flex-start;
 background-color: #d9d9d9;
 border-radius: 3px 10px 10px 10px;
 }
+.chat-typing{
+  display: block;
+  color: #ffa500;
+  font-size: 12px;
+}
 .chat-input{
-width: 47vh;
+width: 100%;
 display: flex;
 justify-content: space-between;
-bottom: 20px;
 font-size: 10px;
 padding: 10px;
 }
@@ -104,5 +103,4 @@ padding: 0 10px;
 margin-left: 5px;
 border-radius: 25px;
 border: none;
-
 }
