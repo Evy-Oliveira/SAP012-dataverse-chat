@@ -85,7 +85,7 @@ export function home() {
 
     });
   }
-  const botoesChat = viewEl.getElementsByClassName('chat');
+  const botoesChat = viewEl.getElementsByClassName('chat-prot');
 
   for (let index = 0; index < botoesChat.length; index++) {
     const botao = botoesChat[index];
