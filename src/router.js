@@ -20,7 +20,7 @@ export const setRoutes = (routes) => {
   ROUTES = routes;
 }
 
-const renderView = (pathname, props = {}) => {
+const renderView = (pathname, props) => {
   // limpa o elemento raiz
   rootEl.textContent = "";
   let path = "";
