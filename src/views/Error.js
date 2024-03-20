@@ -1,6 +1,5 @@
 
-export function error(props) {
-  // props;
+export function error() {
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="erro-view">
   <h1 class="erro-h1">Opsss!</h1>
@@ -9,10 +8,10 @@ export function error(props) {
   <button class="erro-inicio">Voltar ao inicio</button>
   </section>`;
 
- viewEl.querySelector('.erro-inicio').addEventListener('click', (event) => {
-  window.location.href = window.location.origin + '/';
+  viewEl.querySelector('.erro-inicio').addEventListener('click', () => {
+    window.location.href = window.location.origin + '/';
 
-});
- 
+  });
+
   return viewEl;
 }

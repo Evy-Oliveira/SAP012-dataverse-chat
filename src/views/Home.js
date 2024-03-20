@@ -5,8 +5,7 @@ import { renderCards } from '../components/cards.js';
 import { renderListClassification } from '../components/statistics.js';
 
 
-export function home(props) {
-  // props;
+export function home() {
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="menu">
     <section id="filtro">
@@ -86,7 +85,7 @@ export function home(props) {
 
     });
   }
-  const botoesChat = viewEl.getElementsByClassName('chat');
+  const botoesChat = viewEl.getElementsByClassName('chat-prot');
 
   for (let index = 0; index < botoesChat.length; index++) {
     const botao = botoesChat[index];

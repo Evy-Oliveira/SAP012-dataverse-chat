@@ -1,6 +1,7 @@
-let ROUTES = {};
-let rootEl;
+export let ROUTES = {};
+export let rootEl;
 const ERRORPATH = '/error'
+
 
 export const setRootEl = (el) => {
   // atribuir elemento raiz
@@ -13,13 +14,13 @@ export const setRoutes = (routes) => {
     throw new Error('Routes não é um objeto')
   }
   if (!routes[ERRORPATH]) {
-    throw new Error('Routes não definiu uma rota')
+    throw new Error('Routes não definiu uma rota de erro')
   }
   // atribuir ROTAS
   ROUTES = routes;
 }
 
-const renderView = (pathname, props = {}) => {
+const renderView = (pathname, props) => {
   // limpa o elemento raiz
   rootEl.textContent = "";
   let path = "";
@@ -33,9 +34,11 @@ const renderView = (pathname, props = {}) => {
   )
   // renderiza a view correta passando o valor das props e adiciona o elemento view ao elemento raiz do DOM
   rootEl.appendChild(ROUTES[path](props));
+  
 }
 
 export const onURLChange = (location) => {
+ 
   // analisa a localização do nome do caminho e dos parâmetros de pesquisa e converte os parâmetros de pesquisa em um objeto
   const props = queryStringToObject(location.search);
   // renderiza a view com o caminho e o objeto
