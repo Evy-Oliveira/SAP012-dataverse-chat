@@ -1,5 +1,6 @@
 
 export function error() {
+  document.title = "ERROR";
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="erro-view">
   <h1 class="erro-h1">Opsss!</h1>
