@@ -3,9 +3,9 @@ import { filterById } from "../lib/dataFunctions.js";
 import { communicateWithOpenAI } from "../lib/openAiApi.js";
 
 export function chat(props) {
-  document.title = "Chat individual";
+  document.title = " Otaku's List - Chat";
   const dataAnime = filterById(data, props["id"]);
-  //verificar se dataAnine é undefined (!dataAnime) se for encaminha para a pagina de erro;
+  //verificar se dataAnine é undefined (!dataAnime), se for encaminha para a pagina de erro;
   if(!dataAnime){
     window.location.href = '/error';
     return;
