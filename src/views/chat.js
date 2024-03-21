@@ -5,6 +5,12 @@ import { communicateWithOpenAI } from "../lib/openAiApi.js";
 export function chat(props) {
   document.title = "Chat individual";
   const dataAnime = filterById(data, props["id"]);
+  //verificar se dataAnine é undefined (!dataAnime) se for encaminha para a pagina de erro;
+  if(!dataAnime){
+    window.location.href = '/error';
+    return;
+  }
+
   const viewEl = document.createElement('div');
   viewEl.classList.add('chat');
   viewEl.innerHTML = `<div class="chats-individuais">
