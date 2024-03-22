@@ -3,6 +3,8 @@ import data from '../data/dataset.js';
 import { filterBy, sortBy, computeStats } from '../lib/dataFunctions.js';
 import { renderCards } from '../components/cards.js';
 import { renderListClassification } from '../components/statistics.js';
+import { getApiKey } from '../lib/apikey.js';
+import { openApiKeyModal } from '../components/modalApiKey.js';
 
 export function home() {
   const viewEl = document.createElement('div');
@@ -34,6 +36,7 @@ export function home() {
     <h2>Deseja saber mais sobre animes?</h2>
     <section id="container-cards"></section>
   </main>`;
+  
   //renderizando os cards
   let dadosExibidos = data;
   const listaCartao = viewEl.querySelector('#container-cards');
@@ -83,6 +86,15 @@ export function home() {
       document.body.removeChild(overlay); // Remover o overlay quando o modal for fechado
 
     });
+  };
+  window.goToChat =(id) => {
+  
+    if(!getApiKey()){
+      openApiKeyModal(id);
+      alert('Digite uma chave api')
+      return;
+    }
+    window.location.href = window.location.origin + '/chat?id=' + id;
   };
 
   return viewEl;

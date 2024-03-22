@@ -18,7 +18,7 @@ export const renderCards = (data) => {
         <p class="avaliacao"><span itemprop="assessment">${ratingValue}</span> ${ratingStars}</p>
         <p class="temporadasPlataforma"><span itemprop="seasons">${item.extraInfo.seasons}</span> Temporada${(item.extraInfo.seasons>1)?'s':''} - <span itemprop="streaming">${item.extraInfo.streaming}</span></p>
         <button class="botaoModal" onclick="openModal('${item.id}')">Curiosidades</button>
-        <button class="chat-prot" data-id="${item.id}">Chat com ${item.facts.protagonist.name}</button>
+        <button class="chat-prot" data-id="${item.id}" onclick="goToChat('${item.id}')">Chat com ${item.facts.protagonist.name}</button>
       </section>
       <section class="curiosidades" id="modal-${item.id}">
         <!--<span class="close" onclick="closeModal('${item.id}')">&times;</span>-->
@@ -32,32 +32,7 @@ export const renderCards = (data) => {
       </section >
     </li >
   `;
-  cartoes.querySelector(`button[data-id="${item.id}"]`).addEventListener('click', (event) => {
-    const animeId = event.target.dataset.id;
+});
 
-    window.location.href = window.location.origin + '/chat?id=' + animeId;
-
-  });
-  })
   return cartoes;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-  
