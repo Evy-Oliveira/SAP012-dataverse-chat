@@ -41,12 +41,13 @@
   font-size: 11px;
 }
 .listaMensagens{
-  height: 68vh;
+  width: 100%;
+  height: 60vh;
   overflow: auto;
   margin-top: 10px;
 }
 #chat-mensagens{
-height: 70vh;
+height: 60vh;
 display: flex;
 flex-direction: column;
 list-style: none;
@@ -73,7 +74,10 @@ justify-content: flex-start;
 background-color: #d9d9d9;
 border-radius: 3px 10px 10px 10px;
 }
-.chat-typing{
+.chat-execao{
+  height: 5vh;
+}
+.chat-typing, .chat-erro-typing{
   display: block;
   color: #ffa500;
   font-size: 12px;
