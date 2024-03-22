@@ -4,7 +4,6 @@ import { filterBy, sortBy, computeStats } from '../lib/dataFunctions.js';
 import { renderCards } from '../components/cards.js';
 import { renderListClassification } from '../components/statistics.js';
 
-
 export function home() {
   const viewEl = document.createElement('div');
   viewEl.innerHTML = `<section class="menu">
@@ -64,7 +63,7 @@ export function home() {
   //estatistica
   const classificationList = viewEl.querySelector(".estatisticas");
   classificationList.appendChild(renderListClassification(computeStats(dadosExibidos)));
-  
+
   //modal curiosidades
   window.closeModal = (id) => {
     const modal = document.querySelector("#modal-" + id);
@@ -84,16 +83,18 @@ export function home() {
       document.body.removeChild(overlay); // Remover o overlay quando o modal for fechado
 
     });
-  }
+  };
+
   const botoesChat = viewEl.getElementsByClassName('chat-prot');
 
   for (let index = 0; index < botoesChat.length; index++) {
     const botao = botoesChat[index];
-    botao.addEventListener('click', (event) =>{
+    botao.addEventListener('click', (event) => {
       const animeId = event.target.dataset.id;
-      // const props = {id:animeId};
+
       window.location.href = window.location.origin + '/chat?id=' + animeId;
-      // window.navigateToPage('/Chat', props);
+
+
     });
   }
   return viewEl;
