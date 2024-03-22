@@ -32,6 +32,12 @@ export const renderCards = (data) => {
       </section >
     </li >
   `;
+  cartoes.querySelector(`button[data-id="${item.id}"]`).addEventListener('click', (event) => {
+    const animeId = event.target.dataset.id;
+
+    window.location.href = window.location.origin + '/chat?id=' + animeId;
+
+  });
   })
   return cartoes;
 };

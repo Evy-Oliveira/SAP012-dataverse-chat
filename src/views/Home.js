@@ -85,17 +85,5 @@ export function home() {
     });
   };
 
-  const botoesChat = viewEl.getElementsByClassName('chat-prot');
-
-  for (let index = 0; index < botoesChat.length; index++) {
-    const botao = botoesChat[index];
-    botao.addEventListener('click', (event) => {
-      const animeId = event.target.dataset.id;
-
-      window.location.href = window.location.origin + '/chat?id=' + animeId;
-
-
-    });
-  }
   return viewEl;
 }
