@@ -2,6 +2,7 @@ import data from "../data/dataset.js";
 import { filterById } from "../lib/dataFunctions.js";
 import { communicateWithOpenAI } from "../lib/openAiApi.js";
 import { getApiKey } from "../lib/apikey.js";
+import { openApiKeyModal } from "../components/modalApiKey.js";
 
 export function chat(props) {
   document.title = " Otaku's List - Chat";
@@ -96,13 +97,17 @@ export function chat(props) {
 
           li2.scrollIntoView();
 
-        } else {
-          console.error("Resposta do assistente inválida:", assistentAnswer);
         }
+        //  else {
+        //   console.error("Resposta do assistente inválida:", assistentAnswer);
+        // }
       })
       .catch(error => {
-        console.error("Erro ao comunicar com OpenAI:", error);
+        chatTyping.style.display = "none";
+        alert(error);
+        openApiKeyModal();
       });
+      
   }
   inputMessage.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {

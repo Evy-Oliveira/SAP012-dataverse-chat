@@ -86,16 +86,16 @@ export function home() {
       document.body.removeChild(overlay); // Remover o overlay quando o modal for fechado
 
     });
-  };
-  window.goToChat =(id) => {
+  }
+  window.goToChat = (id) => {
   
     if(!getApiKey()){
-      openApiKeyModal(id);
-      alert('Digite uma chave api')
+      openApiKeyModal();
+      alert('Digite uma chave api');
       return;
     }
     window.location.href = window.location.origin + '/chat?id=' + id;
-  };
+  }
 
   return viewEl;
 }

@@ -6,8 +6,6 @@ import { setRootEl, setRoutes, onURLChange } from './router.js'
 import { setApiKey } from './lib/apikey.js'
 import { openApiKeyModal, closeApiKeyModal } from './components/modalApiKey.js'
 
-
-
 const routes = {
   "/": home,
   "/chat": chat,
@@ -29,4 +27,3 @@ document.querySelector("#botao-salvar").addEventListener('click', () => {
   setApiKey(chaveApi);
   closeApiKeyModal();
 });
-

@@ -32,7 +32,7 @@ export const renderCards = (data) => {
       </section >
     </li >
   `;
-});
+  });
 
   return cartoes;
 };
