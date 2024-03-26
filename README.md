@@ -3,6 +3,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=Netlify&message=deploy&color=blue&style=for-the-badge&logo=netlify"/>
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/812ae546-8278-4991-bd97-95d604933e93/deploy-status)](https://app.netlify.com/sites/otakus-list/deploys)
   <!-- <img src="http://img.shields.io/static/v1?label=TESTES&message=%3E100&color=GREEN&style=for-the-badge"/> -->
   <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=RED&style=for-the-badge"/>
 
