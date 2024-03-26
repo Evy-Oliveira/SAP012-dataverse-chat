@@ -1,36 +1,54 @@
 import data from "../data/dataset.js";
 import { filterById } from "../lib/dataFunctions.js";
 import { communicateWithOpenAI } from "../lib/openAiApi.js";
+import { getApiKey } from "../lib/apikey.js";
+import { openApiKeyModal } from "../components/modalApiKey.js";
 
 export function chat(props) {
-  document.title = "Chat individual";
+  document.title = " Otaku's List - Chat";
   const dataAnime = filterById(data, props["id"]);
+  //verificar se dataAnine é undefined (!dataAnime), se for encaminha para a pagina de erro;
+  if(!dataAnime){
+    window.location.href = '/error';
+    return;
+  }
   const viewEl = document.createElement('div');
   viewEl.classList.add('chat');
   viewEl.innerHTML = `<div class="chats-individuais">
-    <section class="chat-individual">
-    <figure class="chat-img-personagem"><img src="${dataAnime.facts.protagonist.imageURL}" alt="imagem de ${dataAnime.facts.protagonist.name} protagonista do ${dataAnime.name}"></figure>
-    <div>
-    <h1 class="chat-personagem">${dataAnime.facts.protagonist.name}</h1>
-    <p class="chat-personalidade">${dataAnime.facts.protagonist.personality}</p>
-    </div>
+    <section class="chat-id-perso">
+     <figure class="chat-img-personagem"><img src="${dataAnime.facts.protagonist.imageURL}" title="imagem de ${dataAnime.facts.protagonist.name} protagonista do ${dataAnime.name}"></figure>
+     <div>
+       <h1 class="chat-personagem">${dataAnime.facts.protagonist.name}</h1>
+       <p class="chat-personalidade">${dataAnime.facts.protagonist.personality}</p>
+     </div>
     </section>
     <div class="listaMensagens">
-    <ul id="chat-mensagens"></ul>
+     <ul id="chat-mensagens"></ul>
     </div>
-    <div class="chat-typing" style="display:none">${dataAnime.facts.protagonist.name} está digitando...</div>
+    <div class="chat-execao">
+     <p class="chat-typing" style="display:none">${dataAnime.facts.protagonist.name} está digitando...</p>
+     <p class="chat-erro-typing" style="display:none"> Você quer conversar com ${dataAnime.facts.protagonist.name}? Primeiro informe uma chave api na parte superior da tela a direita</p>
+    </div>
     <div class="chat-input">
-    <input name="chat-mensagem" type="text" class="chat-mensagem" placeholder="Mensagem">
-    <button class="chat-botao">Enviar</button>
+     <input name="chat-mensagem" type="text" class="chat-mensagem" placeholder="Mensagem">
+     <button class="chat-botao">Enviar</button>
     </div>
 </div>`;
 
   const chatTyping = viewEl.querySelector(".chat-typing");
+  const chatErroTyping = viewEl.querySelector('.chat-erro-typing');
   const inputMessage = viewEl.querySelector('input[name="chat-mensagem"]');
   let messages = [];
 
   const sendMessage = (event) => {
     event.preventDefault();
+    if(!getApiKey()){
+      chatErroTyping.style.display ="block";
+      return;
+    }
+
+    chatErroTyping.style.display ="none";
+    
     const chatMessage = inputMessage.value;
 
     const ul = viewEl.querySelector("#chat-mensagens");
@@ -38,6 +56,9 @@ export function chat(props) {
     li.classList.add("mensagem-enviada");
     li.innerHTML = `<span>${chatMessage}</span>`;
     ul.appendChild(li);
+
+    li.scrollIntoView();
+
     inputMessage.value = "";
 
     chatTyping.style.display = "block";
@@ -74,13 +95,19 @@ export function chat(props) {
           li2.innerHTML = `<span>${message}</span>`;
           ul.appendChild(li2);
 
-        } else {
-          console.error("Resposta do assistente inválida:", assistentAnswer);
+          li2.scrollIntoView();
+
         }
+        //  else {
+        //   console.error("Resposta do assistente inválida:", assistentAnswer);
+        // }
       })
       .catch(error => {
-        console.error("Erro ao comunicar com OpenAI:", error);
+        chatTyping.style.display = "none";
+        alert(error);
+        openApiKeyModal();
       });
+      
   }
   inputMessage.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -90,7 +117,6 @@ export function chat(props) {
   });
 
   viewEl.querySelector(".chat-botao").addEventListener('click', sendMessage);
-
 
   return viewEl;
 }

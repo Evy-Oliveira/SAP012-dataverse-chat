@@ -3,7 +3,8 @@ import data from '../data/dataset.js';
 import { filterBy, sortBy, computeStats } from '../lib/dataFunctions.js';
 import { renderCards } from '../components/cards.js';
 import { renderListClassification } from '../components/statistics.js';
-
+import { getApiKey } from '../lib/apikey.js';
+import { openApiKeyModal } from '../components/modalApiKey.js';
 
 export function home() {
   const viewEl = document.createElement('div');
@@ -35,6 +36,7 @@ export function home() {
     <h2>Deseja saber mais sobre animes?</h2>
     <section id="container-cards"></section>
   </main>`;
+  
   //renderizando os cards
   let dadosExibidos = data;
   const listaCartao = viewEl.querySelector('#container-cards');
@@ -64,7 +66,7 @@ export function home() {
   //estatistica
   const classificationList = viewEl.querySelector(".estatisticas");
   classificationList.appendChild(renderListClassification(computeStats(dadosExibidos)));
-  
+
   //modal curiosidades
   window.closeModal = (id) => {
     const modal = document.querySelector("#modal-" + id);
@@ -85,16 +87,15 @@ export function home() {
 
     });
   }
-  const botoesChat = viewEl.getElementsByClassName('chat-prot');
-
-  for (let index = 0; index < botoesChat.length; index++) {
-    const botao = botoesChat[index];
-    botao.addEventListener('click', (event) =>{
-      const animeId = event.target.dataset.id;
-      // const props = {id:animeId};
-      window.location.href = window.location.origin + '/chat?id=' + animeId;
-      // window.navigateToPage('/Chat', props);
-    });
+  window.goToChat = (id) => {
+  
+    if(!getApiKey()){
+      openApiKeyModal();
+      alert('Digite uma chave api');
+      return;
+    }
+    window.location.href = window.location.origin + '/chat?id=' + id;
   }
+
   return viewEl;
 }
